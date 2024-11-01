@@ -1,0 +1,35 @@
+doctype html
+html
+    head
+        title Prodotti per Marca
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js")
+        style.
+            img {
+                max-width: 200px; 
+            }
+    body
+        div.container
+            h2.center Prodotti per Marca: #{marca}
+            if products.length
+                table(class="striped centered") 
+                    thead
+                        tr
+                            th Nome
+                            th Marca
+                            th Prezzo
+                            th Immagine
+                    tbody
+                        each product in products
+                            tr
+                                td= product.nome
+                                td= product.marca
+                                td= product.prezzo + ' €' 
+                                td
+                                    img(src=product.url)
+            else
+                p.center Nessun prodotto trovato per questa marca.
+
+            // Link per tornare al gestore
+            div(class="center" style="margin-top: 30px;")
+                a.btn(href="/gestore") Torna al Gestore

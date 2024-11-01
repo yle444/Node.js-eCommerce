@@ -1,0 +1,43 @@
+doctype html
+html
+    head
+        title Gestore Prodotti
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js')
+        
+    body
+        div(class="container")
+            h2.center Gestore Prodotti
+
+            // Form per aggiungere un prodotto
+            h4.center Aggiungi Prodotto
+            form(action="/addProduct" method="POST" class="container")
+                div(class="input-field")
+                    input(type="text" name="nome" required placeholder="Nome del prodotto")
+                div(class="input-field")
+                    input(type="text" name="marca" required placeholder="Marca del prodotto")
+                div(class="input-field")
+                    input(type="text" name="url" required placeholder="URL immagine prodotto")
+                div(class="input-field")
+                    input(type="number" name="prezzo" required placeholder="Prezzo del prodotto")
+                div(class="center")
+                    button(type="submit" class="btn blue") Aggiungi Prodotto
+                div(style='margin-bottom: 30px;') 
+
+            // Form per eliminare un prodotto tramite nome
+            h4.center Elimina Prodotto
+            form(action="/eliminaProdotto" method="POST" class="container")
+                div(class="input-field")
+                    input(type="text" name="nome" required placeholder="Nome del prodotto")
+                div(class="center" style="margin-top: 20px;")
+                    button(type="submit" class="btn red") Elimina Prodotto
+                div(style='margin-bottom: 30px;') 
+
+            // Form per cercare un prodotto per marca
+            h4.center Cerca Prodotto per Marca
+            form(action="/cercaMarca" method="POST" class="container")
+                div(class="input-field")
+                    input(type="text" name="marca" required placeholder="Marca del prodotto")
+                div(class="center" style="margin-top: 20px;")
+                    button(type="submit" class="btn green") Cerca
+                div(style='margin-bottom: 30px;')         

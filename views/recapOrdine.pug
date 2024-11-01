@@ -1,0 +1,41 @@
+doctype html
+html(lang="en")
+    head
+        title Riepilogo Ordine
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js")
+        style.
+          img {
+            max-width: 200px; 
+          }
+
+        
+        
+    body
+        div(class="container")
+            h2.center Riepilogo del tuo ordine
+            table(class="striped centered") 
+                thead
+                    tr
+                        th Nome
+                        th Marca
+                        th Prezzo                         
+                        th Quantità
+                        th Img
+                        th Prezzo provvisorio
+
+                tbody
+                     each prodotto in prodotti
+                        tr
+                            td= prodotto.nome
+                            td= prodotto.marca
+                            td= prodotto.prezzo + ' €' 
+                            td= prodotto.quantita
+                            td
+                                img(src=prodotto.url) 
+                            td= prodotto.totale + ' €'
+            
+            h4.center Somma totale da pagare: #{totale} €
+            
+            div(class="center")
+                a(href="/" class="btn blue") Torna al Negozio

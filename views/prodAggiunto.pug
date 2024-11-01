@@ -1,0 +1,30 @@
+doctype html
+html
+    head
+        title Prodotto Aggiunto
+        link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js')
+    body
+        div(class="container")
+            h2.center Prodotto Aggiunto
+            p.center Il prodotto è stato aggiunto con successo ai nostri archivi.
+            
+            // Tabella con i dettagli del prodotto
+            table.centered
+                thead
+                    tr
+                        th Nome
+                        th Marca
+                        th Immagine
+                        th Prezzo
+                tbody
+                    tr
+                        td= prodotto.nome
+                        td= prodotto.marca
+                        td: img(src=prodotto.url, alt="Immagine prodotto", width="100") 
+                        td €#{prodotto.prezzo}
+                        
+            // Link per tornare al gestore
+            div(class="center" style="margin-top: 30px;")
+                a.btn(href="/gestore") Torna al Gestore
+

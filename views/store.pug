@@ -1,0 +1,39 @@
+doctype html
+html(lang="en")
+    head
+        title Negozio Prodotti
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js")
+        
+        style.
+          img {
+            max-width: 200px; 
+          }
+        
+    body
+        div(class="container")
+            h2.center Negozio Prodotti
+            form(action="/buy" method="post")
+                table(class="striped centered") 
+                    thead
+                        tr
+                            th Nome
+                            th Marca                            
+                            th Prezzo
+                            th Img
+                            th Seleziona
+
+                    tbody
+                        each prodotto in lista
+                            tr
+                                td= prodotto.nome
+                                td= prodotto.marca                               
+                                td= prodotto.prezzo + ' €' 
+                                td 
+                                    img(src=prodotto.url) 
+                                td 
+                                    input(type="number" name="num" value="0", min="0", style="width: 60px")
+
+                div(class="center")
+                    button(type="submit" class="btn blue") Acquista
+                div(style='margin-bottom: 30px;') 
